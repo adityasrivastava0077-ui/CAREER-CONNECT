@@ -6,6 +6,7 @@ import StudentSignup from "./pages/StudentSignup.jsx";
 import RecruiterSignup from "./pages/RecruiterSignup.jsx";
 import Login from "./pages/Login.jsx";
 import "./App.css";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 function HomePage() {
   const [opportunities, setOpportunities] = useState([]);
@@ -34,9 +35,10 @@ function HomePage() {
         }
 
         const response = await fetch(
-          `http://localhost:5000/api/opportunities?${params}`,
-          { signal: controller.signal }
-        );
+  `${API_URL}/api/opportunities?${params}`,
+  { signal: controller.signal }
+);
+        
 
         if (!response.ok) {
           throw new Error("Failed to fetch opportunities");

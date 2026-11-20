@@ -1,14 +1,15 @@
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import API_URL from "../api";
 import "./StudentDashboard.css";
+
 
 function StudentDashboard() {
   const [opportunities, setOpportunities] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/opportunities")
+    fetch(`${API_URL}/api/opportunities`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to load opportunities");

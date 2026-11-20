@@ -1,6 +1,6 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import API_URL from "../api";
 import "./RecruiterSignup.css";
 
 function RecruiterSignup() {
@@ -45,7 +45,7 @@ function RecruiterSignup() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/signup",
+        `${API_URL}/api/auth/signup`,
         {
           method: "POST",
           headers: {

@@ -1,7 +1,8 @@
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import API_URL from "../api";
 import "./RecruiterDashboard.css";
+
 
 function RecruiterDashboard() {
   const [opportunities, setOpportunities] = useState([]);
@@ -21,7 +22,7 @@ function RecruiterDashboard() {
   const fetchOpportunities = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/opportunities"
+    `${API_URL}/api/opportunities`
       );
 
       if (!response.ok) {
@@ -54,7 +55,7 @@ function RecruiterDashboard() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/opportunities",
+        `${API_URL}/api/opportunities`,
         {
           method: "POST",
           headers: {
